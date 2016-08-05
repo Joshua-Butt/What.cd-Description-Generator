@@ -29,8 +29,8 @@ if __name__ == '__main__':
 		# Itterate through multiple audio files
 		if len(audio_files) > 1:	
 			# Sort the audio files by track number
-			audio_files.sort(key=lambda x: x.track)
-			
+			audio_files.sort(key=lambda x: int(x.track[0].split('/')[0]))
+
 			# Generate the album bio
 			album_bio = ""
 			album_bio += "[size=5][b][artist]{artist}[/artist] - {album}[/b][/size]\n".format(artist=audio_files[0].artist[0], album=audio_files[0].album[0])
@@ -55,6 +55,9 @@ if __name__ == '__main__':
 			output_file.close()
 
 			print "Successfully generated text File"
+
+			for f in audio_files:
+				print int(f.track[0].split('/')[0])
 
 		else:
 			print "Support for single files coming soon "
