@@ -56,9 +56,6 @@ if __name__ == '__main__':
 
 			print "Successfully generated text File"
 
-			for f in audio_files:
-				print int(f.track[0].split('/')[0])
-
 		else:
 			print "Support for single files coming soon "
 			
